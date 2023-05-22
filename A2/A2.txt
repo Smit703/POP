@@ -1,0 +1,49 @@
+ This assignment has two components. Interpreter and Type inference.
+(A) Interpretation
+
+(A1, 10 marks) Write an interpreter for minischeme. You may use the rules discussed in the class (many of them can be used verbatim). A sample interpreter for a subset of the same can be found here, that can interpret the syntax tree given in tree.scm. You will need two other helper files: records.scm and recscm.scm.
+
+To submit:
+Filename: interpreter-regular.scm
+Expected output: the value returned by the scheme program.
+
+(A2, 40 marks) Write an interpreter for minischeme, assuming call-by name semantics.
+
+To submit:
+Filename: interpreter-lazy.scm
+Expected output: the value returned by the scheme program, if evaluated in lazy manner.
+
+(B) Type Inference (50 marks):
+Write a program to infer the type of the scheme expression. Assume the following rules:
+- valid types are generated from the following grammar
+t : Bool | Int | t -> t
+- Standard rules of type consistency apply to all the expressions.
+
+To submit:
+Filename: type-infer.scm
+Expected output: a valid type or "Type Error"
+
+Example, if the scheme expression is
+
+ (lambda (x) (+ 3 x))
+
+the output should be Int->Int
+Example, if the scheme expression is
+
+ (lambda (x) (+ 3 x) 6)
+
+the output should be Int
+Example, if the scheme expression is
+
+ (lambda (x) (+ 3 x) #t)
+
+the output should be Type Error
+How to generate sample syntax tree:
+Download the scheme syntax-tree generator
+
+Follow the example invocation:
+
+echo "(if #t (+ 3 4) (lambda (x) (+ 6 x) 3))" | java -jar sst.jar  > tree.scm
+
+
+By changing the contents in tree.scm, we can test your program for different inputs.

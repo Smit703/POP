@@ -1,0 +1,85 @@
+1. [20 marks] Write a program that takes a string and prints it out such that each letter of the string is printed out onto the standard output as a banner.
+The program may take three arguments -m (number of columns, default 6), -n (number of rows, default 6), -c (the display character, default #).
+
+Sample execution:
+
+java Display -m 6 -n 6 -c x dee
+
+xxxxx  xxxxxx xxxxxx
+x    x x      x
+x    x xxxxx  xxxxx
+x    x x      x
+x    x x      x
+xxxxx  xxxxxx xxxxxx
+
+// Instructions:
+// Main file name: Display.java
+// Assume that you will be asked to print strings containing letters
+[aeioubcdef] only.
+
+2. [20 marks] Stack machine.
+Write a Java code to interpret instructions for a simple stack machine.
+
+The different supported instructions are:
+push - pushes the following integer on to the stack.
+pop - pops the top element off the stack and prints it.
+dup - duplicates the top element of the stack and pushes it back on to the stack.
+add - pops off the top two elements off the stack, adds them and pushes the result back onto the stack.
+sub - pops off the top two elements off the stack, subtracts them (stack[0] - stack[1]) and pushes the result back onto the stack.
+mul - pops off the top two elements off the stack, multiplies them and pushes the result back onto the stack.
+div - pops off the top two elements off the stack, divides them (integer divison, stack[0]/stack[1]) and pushes the result back onto the stack.
+
+// Corner case:
+For each of the operations that pop elements from the stack, if the stack is empty, the operation becomes a nop.
+
+Assume that you will be given a class named Code.java that contains the
+sequence of stack machine instructions (sample file given below)
+
+Your main file name should be called the Calc.java; in which you will write the appropriate Java instructions to interpret the stack machine instructions given in Code.java.
+
+Example Code.java:
+
+public final class Code{
+
+public static final String []code = new String[] {
+	"push",
+	"3",
+	"push",
+	"2",
+	"dup",
+	"pop",
+	"sub",
+	"pop"
+	};
+
+}
+
+Expected output for this Code:
+2
+-1
+
+===============
+Submission guidelines:
+
+Your submissions should be a single .tar.gz file of the form <yourroll>.tar.gz.
+Unzipping it must produce a single directory matching your roll number e.g., CS20B001.
+This directory must have a single subdirectory: A0 and file checklist.txt [see moodle for the details on Checklist.txt]
+A0 must have two sub-directories: Q1 and Q2.
+All the files related to the first question must be in Q1 and those related to the second question in Q2.
+
+The following sample commands should be able to compile and run the respective submissions:
+
+In the Q1 directory:
+javac Display.java
+java Display -m 6 -n 6 -c x dew
+
+
+In the Q2 directory:
+cp /tmp/Code.java . # To copy my version of Code.java
+javac Calc.java
+java Calc
+
+Your code should print nothing other than the relevant output stated in this document. No debug messages etc should be printed out.
+
+
+

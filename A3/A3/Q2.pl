@@ -1,0 +1,1 @@
+range(S,E,M) :- S =< M, E >= M.
